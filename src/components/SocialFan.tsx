@@ -2,14 +2,15 @@ import { SiGithub, SiTelegram } from 'react-icons/si';
 import { content } from '../content';
 import { MailIcon } from './Icons';
 
-function ShareIcon() {
+/* Stylish "link/connection" icon — three dots connected */
+function SocialTriggerIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} aria-hidden="true">
-      <circle cx="18" cy="5" r="3" />
-      <circle cx="6" cy="12" r="3" />
-      <circle cx="18" cy="19" r="3" />
-      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
-      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none" />
+      <circle cx="4.5" cy="12" r="1.6" fill="currentColor" stroke="none" opacity="0.6" />
+      <circle cx="19.5" cy="12" r="1.6" fill="currentColor" stroke="none" opacity="0.6" />
+      <line x1="6.1" y1="12" x2="9.8" y2="12" strokeWidth="1.2" opacity="0.4" />
+      <line x1="14.2" y1="12" x2="17.9" y2="12" strokeWidth="1.2" opacity="0.4" />
     </svg>
   );
 }
@@ -23,16 +24,15 @@ export function SocialFan() {
   return (
     <div className="social-fan" role="group" aria-label="Social links">
       <button className="icon-btn social-fan-btn" type="button" aria-label="Social links">
-        <ShareIcon />
+        <SocialTriggerIcon />
       </button>
-      <div className="social-fan-dropdown" aria-hidden="true">
+      <div className="social-fan-dropdown">
         <a
           className="fan-item fan-github"
           href={github}
           target="_blank"
           rel="noreferrer noopener"
           aria-label="GitHub"
-          tabIndex={-1}
         >
           <SiGithub />
         </a>
@@ -42,7 +42,6 @@ export function SocialFan() {
           target="_blank"
           rel="noreferrer noopener"
           aria-label="Telegram"
-          tabIndex={-1}
         >
           <SiTelegram />
         </a>
@@ -50,7 +49,6 @@ export function SocialFan() {
           className="fan-item fan-email"
           href={email}
           aria-label="Email"
-          tabIndex={-1}
         >
           <MailIcon />
         </a>

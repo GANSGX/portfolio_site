@@ -19,6 +19,11 @@ type StatItem = {
   value: number;
   label: LocalizedText;
   flip: LocalizedText;
+  description: LocalizedText;
+  source: LocalizedText;
+  tags: LocalizedText;
+  size?: 'wide' | 'normal';
+  accent?: boolean;
 };
 
 type ContactLink = {
@@ -50,6 +55,10 @@ export const content = {
       ru: 'Frontend-разработчик',
       en: 'Frontend Developer',
     },
+    aboutHeadline: {
+      ru: ['ТЕХНИКА', 'ИНТЕРЕСОВАЛА', 'С ДЕТСТВА'] as [string, string, string],
+      en: ['TECHNOLOGY', 'FASCINATED ME', 'SINCE CHILDHOOD'] as [string, string, string],
+    },
     tagline: {
       ru: 'Пишу интерфейсы, которые приятно трогать руками',
       en: 'I build interfaces that feel good to use',
@@ -63,18 +72,44 @@ export const content = {
   stats: [
     {
       value: 3,
-      label: { ru: 'Года опыта', en: 'Years experience' },
-      flip: { ru: '2022 — н.в. Агентство, муниципальный проект, фриланс.', en: '2022–present. Agency, municipal project, freelance.' },
+      label: { ru: 'Года', en: 'Years' },
+      flip: { ru: 'в коде', en: 'in code' },
+      description: {
+        ru: 'От правок вёрстки до архитектуры фич — без перерывов в практике',
+        en: 'From layout fixes to feature architecture — uninterrupted practice',
+      },
+      source: { ru: '2022 — настоящее время', en: '2022 — present' },
+      tags: {
+        ru: 'AMF Marketing · Муниципальный проект · Фриланс',
+        en: 'AMF Marketing · Municipal project · Freelance',
+      },
+      size: 'wide',
+      accent: true,
     },
     {
-      value: 2,
-      label: { ru: 'Компании', en: 'Companies' },
-      flip: { ru: 'AMF Marketing и bibliotekino.ru — оба в продакшне.', en: 'AMF Marketing and bibliotekino.ru — both in production.' },
+      value: 3,
+      label: { ru: 'Канала', en: 'Tracks' },
+      flip: { ru: 'разных контекста', en: 'distinct contexts' },
+      description: {
+        ru: 'Агентство, фриланс и муниципальный сектор — разный темп, масштаб и тип клиента',
+        en: 'Agency, freelance and public sector — different pace, scale and client type',
+      },
+      source: {
+        ru: 'AMF Marketing · Freelance · МБУК ЦБС',
+        en: 'AMF Marketing · Freelance · MBUK CBS',
+      },
+      tags: { ru: 'React · TypeScript · SEO', en: 'React · TypeScript · SEO' },
     },
     {
-      value: 1,
-      label: { ru: 'Муниципальный проект', en: 'Municipal project' },
-      flip: { ru: 'Редизайн bibliotekino.ru — сайт 2008 года. Легаси, SEO, доступность.', en: 'Redesigned bibliotekino.ru — a 2008 site. Legacy code, SEO, accessibility.' },
+      value: 17,
+      label: { ru: 'Лет легаси', en: 'Years legacy' },
+      flip: { ru: 'разобрано', en: 'untangled' },
+      description: {
+        ru: 'Сайт 2008 года переведён в современный стандарт без переписывания с нуля',
+        en: 'A 2008 site brought to modern standards without a full rewrite',
+      },
+      source: { ru: 'bibliotekino.ru — муниципальный проект', en: 'bibliotekino.ru — municipal project' },
+      tags: { ru: 'Рефакторинг · SEO · A11Y', en: 'Refactoring · SEO · A11Y' },
     },
   ] satisfies StatItem[],
 
