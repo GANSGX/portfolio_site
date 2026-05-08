@@ -44,6 +44,7 @@ function NavItem({ label, href }: { label: string; href: string }) {
 
 export function Header({ locale, setLocale }: Props) {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const t = ui[locale];
 
   useEffect(() => {
@@ -53,27 +54,88 @@ export function Header({ locale, setLocale }: Props) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.classList.toggle('menu-open', menuOpen);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMenuOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.classList.remove('menu-open');
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
+
   return (
-    <header className={`site-header${scrolled ? ' scrolled' : ''}`}>
-      <div className="brand">
-        <span className="brand-mark">{content.owner.initials}</span>
-        <span className="brand-divider" />
-        <span className="brand-tag">{t.portfolio}</span>
-      </div>
+    <>
+      <header className={`site-header${scrolled ? ' scrolled' : ''}${menuOpen ? ' menu-is-open' : ''}`}>
+        <div className="brand">
+          <span className="brand-mark">{content.owner.initials}</span>
+          <span className="brand-divider" />
+          <span className="brand-tag">{t.portfolio}</span>
+        </div>
 
-      <nav className="nav" aria-label="primary">
-        {NAV_KEYS.map((key, i) => (
-          <span key={key} style={{ display: 'contents' }}>
-            <NavItem label={t[key].toUpperCase()} href={NAV_HREFS[key]} />
-            {i < NAV_KEYS.length - 1 ? <span className="nav-sep">·</span> : null}
-          </span>
-        ))}
-      </nav>
+        <nav className="nav" aria-label="primary">
+          {NAV_KEYS.map((key, i) => (
+            <span key={key} style={{ display: 'contents' }}>
+              <NavItem label={t[key].toUpperCase()} href={NAV_HREFS[key]} />
+              {i < NAV_KEYS.length - 1 ? <span className="nav-sep">·</span> : null}
+            </span>
+          ))}
+        </nav>
 
-      <div className="actions">
-        <SocialFan />
-        <LangSwitch locale={locale} setLocale={setLocale} />
+        <div className="actions">
+          <SocialFan />
+          <LangSwitch locale={locale} setLocale={setLocale} />
+        </div>
+
+        <button
+          className="menu-toggle"
+          type="button"
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span />
+          <span />
+        </button>
+      </header>
+
+      <div className={`mobile-menu${menuOpen ? ' is-open' : ''}`} id="mobile-menu" aria-hidden={!menuOpen}>
+        <div className="mobile-menu-bg" />
+        <div className="mobile-menu-inner">
+          <div className="mobile-menu-top">
+            <span className="mobile-menu-brand">{content.owner.initials}</span>
+            <button className="mobile-menu-close" type="button" aria-label="Close menu" onClick={closeMenu}>
+              <span />
+              <span />
+            </button>
+          </div>
+
+          <nav className="mobile-nav" aria-label="mobile primary">
+            {NAV_KEYS.map((key, i) => (
+              <a
+                className="mobile-nav-item"
+                href={NAV_HREFS[key]}
+                key={key}
+                onClick={closeMenu}
+                style={{ ['--i' as never]: i } as React.CSSProperties}
+              >
+                <span className="mobile-nav-num">0{i + 1}</span>
+                <span>{t[key]}</span>
+              </a>
+            ))}
+          </nav>
+
+          <div className="mobile-menu-actions">
+            <SocialFan />
+            <LangSwitch locale={locale} setLocale={setLocale} />
+          </div>
+        </div>
       </div>
-    </header>
+    </>
   );
 }
