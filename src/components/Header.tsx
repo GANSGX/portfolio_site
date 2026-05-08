@@ -17,6 +17,10 @@ const NAV_HREFS: Record<(typeof NAV_KEYS)[number], string> = {
   contact: '#contact',
 };
 
+function OwnerName({ locale }: { locale: Locale }) {
+  return <>{content.owner.name[locale].join(' ')}</>;
+}
+
 function NavItem({ label, href }: { label: string; href: string }) {
   const onEnter = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const spans = e.currentTarget.querySelectorAll<HTMLSpanElement>('.ch');
@@ -71,11 +75,14 @@ export function Header({ locale, setLocale }: Props) {
   return (
     <>
       <header className={`site-header${scrolled ? ' scrolled' : ''}${menuOpen ? ' menu-is-open' : ''}`}>
-        <div className="brand">
+        <a className="brand" href="#top" aria-label="Scroll to top" onClick={closeMenu}>
           <span className="brand-mark">{content.owner.initials}</span>
+          <span className="brand-name">
+            <OwnerName locale={locale} />
+          </span>
           <span className="brand-divider" />
           <span className="brand-tag">{t.portfolio}</span>
-        </div>
+        </a>
 
         <nav className="nav" aria-label="primary">
           {NAV_KEYS.map((key, i) => (
@@ -108,7 +115,9 @@ export function Header({ locale, setLocale }: Props) {
         <div className="mobile-menu-bg" />
         <div className="mobile-menu-inner">
           <div className="mobile-menu-top">
-            <span className="mobile-menu-brand">{content.owner.initials}</span>
+            <a className="mobile-menu-brand" href="#top" onClick={closeMenu}>
+              <OwnerName locale={locale} />
+            </a>
             <button className="mobile-menu-close" type="button" aria-label="Close menu" onClick={closeMenu}>
               <span />
               <span />

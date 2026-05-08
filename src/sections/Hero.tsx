@@ -30,7 +30,7 @@ export function Hero({ locale }: { locale: Locale }) {
   const [first, second] = content.owner.name[locale];
 
   return (
-    <section className="hero" data-screen-label="01 Hero">
+    <section className="hero" id="top" data-screen-label="01 Hero">
       <div className="hero-top">
         <div className="hero-text">
           <div className="meta-line">
