@@ -32,6 +32,7 @@ html, body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -266,9 +267,12 @@ main, header, footer { position: relative; z-index: 2; }
 .mobile-menu {
   position: fixed;
   inset: 0;
+  width: 100%;
+  height: 100dvh;
   z-index: 120;
   pointer-events: none;
   color: #fff;
+  overflow: hidden;
 }
 .mobile-menu-bg {
   position: absolute;
@@ -279,8 +283,9 @@ main, header, footer { position: relative; z-index: 2; }
     linear-gradient(135deg, rgba(9, 12, 28, 0.98), rgba(5, 5, 12, 0.98) 62%, rgba(26,47,110,0.95));
   -webkit-backdrop-filter: blur(30px) saturate(145%);
   backdrop-filter: blur(30px) saturate(145%);
-  clip-path: circle(0 at calc(100% - 36px) 34px);
-  transition: clip-path .82s cubic-bezier(.78,0,.18,1);
+  clip-path: circle(0 at calc(100% - 32px) 32px);
+  transition: clip-path .72s cubic-bezier(.72,0,.18,1);
+  will-change: clip-path;
 }
 .mobile-menu-bg::before,
 .mobile-menu-bg::after {
@@ -292,6 +297,7 @@ main, header, footer { position: relative; z-index: 2; }
   opacity: 0;
   transform: scale(.2);
   transition: opacity .35s ease, transform .8s cubic-bezier(.2,.8,.2,1);
+  will-change: transform;
 }
 .mobile-menu-bg::before {
   top: 74px;
@@ -310,12 +316,22 @@ main, header, footer { position: relative; z-index: 2; }
   pointer-events: auto;
 }
 .mobile-menu.is-open .mobile-menu-bg {
-  clip-path: circle(150vmax at calc(100% - 36px) 34px);
+  clip-path: circle(150vmax at calc(100% - 32px) 32px);
 }
 .mobile-menu.is-open .mobile-menu-bg::before,
 .mobile-menu.is-open .mobile-menu-bg::after {
   opacity: 1;
   transform: scale(1);
+  animation: menuDotDrift 12s ease-in-out infinite alternate;
+}
+.mobile-menu.is-open .mobile-menu-bg::after {
+  animation-duration: 15s;
+  animation-delay: -4s;
+}
+@keyframes menuDotDrift {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-14px, 18px, 0) scale(1.06); }
+  100% { transform: translate3d(10px, -12px, 0) scale(.96); }
 }
 .mobile-menu-inner {
   position: relative;
@@ -325,12 +341,12 @@ main, header, footer { position: relative; z-index: 2; }
   display: flex;
   flex-direction: column;
   opacity: 0;
-  transform: translate(18px, -18px);
-  transition: opacity .34s ease .12s, transform .44s cubic-bezier(.2,.8,.2,1) .12s;
+  transform: none;
+  transition: opacity .18s ease;
 }
 .mobile-menu.is-open .mobile-menu-inner {
   opacity: 1;
-  transform: translate(0, 0);
+  transition-delay: .18s;
 }
 .mobile-menu-top {
   display: flex;
@@ -1506,9 +1522,10 @@ main, header, footer { position: relative; z-index: 2; }
   .site-header,
   .site-header.scrolled {
     top: 12px;
-    height: 48px;
+    height: 58px;
     min-width: calc(100vw - 32px);
     max-width: calc(100vw - 32px);
+    padding: 0 18px;
   }
 
   .brand { gap: 10px; }
@@ -1517,53 +1534,38 @@ main, header, footer { position: relative; z-index: 2; }
 
   .menu-toggle {
     margin-left: auto;
-    width: 46px;
-    height: 34px;
-    border-radius: 10px;
+    width: 42px;
+    height: 42px;
+    border-radius: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    background: rgba(255,255,255,0.025);
-    border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
-    transition: background .2s ease, border-color .2s ease, transform .2s ease;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    transition: transform .2s ease;
   }
 
   .menu-toggle::before {
-    content: "";
-    position: absolute;
-    inset: 7px 9px;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.035);
-    opacity: 0;
-    transition: opacity .2s ease;
-  }
-
-  .menu-toggle:hover,
-  .menu-toggle[aria-expanded="true"] {
-    background: rgba(255,255,255,0.055);
-    border-color: rgba(255,255,255,0.14);
-  }
-
-  .menu-toggle:hover::before,
-  .menu-toggle[aria-expanded="true"]::before {
-    opacity: 1;
+    display: none;
   }
 
   .menu-toggle span {
     position: absolute;
-    width: 22px;
-    height: 1.5px;
+    right: 3px;
+    width: 28px;
+    height: 2px;
     border-radius: 999px;
     background: #fff;
-    transition: transform .28s ease, opacity .2s ease;
+    box-shadow: 0 0 14px rgba(255,255,255,0.14);
+    transition: transform .28s ease, width .24s ease, opacity .2s ease;
   }
 
-  .menu-toggle span:first-child { transform: translateY(-4px); }
-  .menu-toggle span:last-child { transform: translateY(4px); width: 16px; }
-  .menu-toggle[aria-expanded="true"] span:first-child { transform: rotate(45deg); }
-  .menu-toggle[aria-expanded="true"] span:last-child { transform: rotate(-45deg); width: 22px; }
+  .menu-toggle span:first-child { transform: translateY(-5px); }
+  .menu-toggle span:last-child { transform: translateY(5px); width: 20px; }
+  .menu-toggle[aria-expanded="true"] span:first-child { transform: rotate(45deg); width: 26px; }
+  .menu-toggle[aria-expanded="true"] span:last-child { transform: rotate(-45deg); width: 26px; }
 
   .mobile-menu .social-fan {
     display: flex;
@@ -1671,9 +1673,10 @@ main, header, footer { position: relative; z-index: 2; }
   .site-header,
   .site-header.scrolled {
     width: calc(100vw - 24px);
+    height: 60px;
     min-width: 0;
     max-width: calc(100vw - 24px);
-    padding: 0 12px;
+    padding: 0 18px;
     border-radius: 14px;
   }
 
@@ -1690,7 +1693,7 @@ main, header, footer { position: relative; z-index: 2; }
   .brand-mark { display: none; }
   .brand-name {
     display: block;
-    max-width: calc(100vw - 118px);
+    max-width: calc(100vw - 126px);
     overflow: hidden;
     text-overflow: ellipsis;
   }
@@ -1748,7 +1751,7 @@ main, header, footer { position: relative; z-index: 2; }
   }
 
   .hero {
-    padding-top: 78px;
+    padding-top: 88px;
   }
 
   .hero-top {
@@ -2079,7 +2082,8 @@ main, header, footer { position: relative; z-index: 2; }
   .site-header.scrolled {
     width: calc(100vw - 16px);
     max-width: calc(100vw - 16px);
-    padding: 0 8px;
+    height: 58px;
+    padding: 0 14px;
   }
 
   .brand-name {
@@ -2104,6 +2108,18 @@ main, header, footer { position: relative; z-index: 2; }
   .social-fan,
   .social-fan-dropdown {
     gap: 6px;
+  }
+
+  .menu-toggle {
+    width: 38px;
+  }
+
+  .menu-toggle span {
+    width: 25px;
+  }
+
+  .menu-toggle span:last-child {
+    width: 18px;
   }
 
   .fan-item,
