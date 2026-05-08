@@ -67,8 +67,8 @@ function StatCard({ stat, locale, index }: { stat: Stat; locale: Locale; index: 
 }
 
 function highlightBio(paragraph: string, locale: Locale) {
-  const ru = ['три года', 'маркетинговом агентстве', 'муниципальный проект', 'коммуникация'];
-  const en = ['three years', 'marketing agency', 'municipal project', 'communication'];
+  const ru = ['им удобно пользоваться', 'За 3 года', 'большой легаси-кодовой базой', 'точечно улучшать', 'не ломать то, что уже работает', 'нормальная коммуникация'];
+  const en = ['comfortable to use', 'Over 3 years', 'large legacy codebase', 'improve it point by point', 'avoid breaking what already works', 'healthy communication'];
   const keys = locale === 'ru' ? ru : en;
   const pattern = new RegExp(`(${keys.join('|')})`, 'gi');
   const parts = paragraph.split(pattern);

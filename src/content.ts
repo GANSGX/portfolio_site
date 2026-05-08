@@ -64,8 +64,8 @@ export const content = {
       en: 'I build interfaces that feel good to use',
     },
     about: {
-      ru: 'Техника интересовала с детства — с первого телефона, с первого компьютера. Всегда было интересно как это устроено внутри, почему работает именно так. Со временем это переросло в программирование, и вот уже три года я занимаюсь этим профессионально.\n\nЗа это время успел поработать в маркетинговом агентстве, где задачи росли вместе со мной — от правок вёрстки до самостоятельной разработки фич и работы с архитектурой. Параллельно закрыл муниципальный проект — редизайн сайта которому было почти 20 лет. Тот случай когда нельзя просто всё переписать, нужно думать.\n\nВ команде важна коммуникация — не замалчивать проблемы, говорить прямо, слышать других. Убеждён что хороший результат рождается из живого диалога, а не из молчаливого закрытия тасок.',
-      en: "Technology has fascinated me since childhood — the first phone, the first computer. I always wanted to know how things work under the hood. That curiosity eventually turned into programming, and for the past three years I've been doing this professionally.\n\nOver that time I worked at a marketing agency where my responsibilities grew alongside my skills — from layout fixes to building features independently and thinking about architecture. I also delivered a municipal project — a redesign of a site that hadn't been touched since 2008. The kind of task where you can't just rewrite everything from scratch.\n\nI believe good results come from real communication — not hiding problems, speaking directly, actually listening. The best code I've seen came from teams that talk to each other, not just close tickets.",
+      ru: 'Я frontend-разработчик, который любит не просто верстать экраны, а доводить интерфейс до состояния “им удобно пользоваться”.\n\nЗа 3 года я работал с разными типами задач: быстрые агентские проекты, фриланс и муниципальный сайт с большой легаси-кодовой базой. Поэтому умею не только писать с нуля, но и аккуратно разбираться в чужом коде, точечно улучшать существующее и не ломать то, что уже работает.\n\nМне близок подход, где frontend — это не набор красивых блоков, а часть продукта: скорость, адаптивность, понятная структура, аккуратная анимация, нормальная коммуникация с командой. Я спокойно отношусь к ограничениям, задаю вопросы, если вижу риск, и стараюсь делать так, чтобы после меня код было приятно поддерживать.',
+      en: "I'm a frontend developer who likes not just building screens, but bringing an interface to the point where it feels comfortable to use.\n\nOver 3 years, I've worked with different kinds of tasks: fast agency projects, freelance work, and a municipal website with a large legacy codebase. That taught me not only to build from scratch, but also to carefully understand existing code, improve it point by point, and avoid breaking what already works.\n\nI see frontend as more than a set of nice-looking blocks — it's part of the product: speed, responsiveness, clear structure, thoughtful animation, and healthy communication with the team. I stay calm around constraints, ask questions when I see risk, and try to leave code that is pleasant to maintain.",
     },
   },
 
@@ -75,10 +75,10 @@ export const content = {
       label: { ru: 'Года', en: 'Years' },
       flip: { ru: 'в коде', en: 'in code' },
       description: {
-        ru: 'От правок вёрстки до архитектуры фич — без перерывов в практике',
-        en: 'From layout fixes to feature architecture — uninterrupted practice',
+        ru: 'От правок вёрстки до самостоятельной разработки фич и поддержки интерфейсов',
+        en: 'From layout fixes to building features independently and supporting interfaces',
       },
-      source: { ru: '2022 — настоящее время', en: '2022 — present' },
+      source: { ru: '2023 — 2026', en: '2023 — 2026' },
       tags: {
         ru: 'AMF Marketing · Муниципальный проект · Фриланс',
         en: 'AMF Marketing · Municipal project · Freelance',
@@ -105,11 +105,11 @@ export const content = {
       label: { ru: 'Лет легаси', en: 'Years legacy' },
       flip: { ru: 'разобрано', en: 'untangled' },
       description: {
-        ru: 'Сайт 2008 года переведён в современный стандарт без переписывания с нуля',
-        en: 'A 2008 site brought to modern standards without a full rewrite',
+        ru: 'Работа с большой кодовой базой сайта 2008 года: точечные правки, улучшения и осторожность',
+        en: 'Work with a large 2008 codebase: targeted fixes, improvements, and careful changes',
       },
       source: { ru: 'bibliotekino.ru — муниципальный проект', en: 'bibliotekino.ru — municipal project' },
-      tags: { ru: 'Рефакторинг · SEO · A11Y', en: 'Refactoring · SEO · A11Y' },
+      tags: { ru: 'Legacy · Редизайн · Осторожность', en: 'Legacy · Redesign · Careful changes' },
     },
   ] satisfies StatItem[],
 
@@ -126,8 +126,8 @@ export const content = {
         en: 'Frontend Developer',
       },
       description: {
-        ru: 'Основное место работы на протяжении двух лет. Начинал по договору — небольшие задачи, быстрый ритм агентства. Постепенно зона ответственности росла: самостоятельная разработка фич, работа с архитектурой проектов, взаимодействие с командой. Последние полгода — официально в штате по ТК.',
-        en: 'My main place of work for two years. Started as a contractor — small tasks, fast agency pace. Gradually took on more responsibility: building features independently, working on project architecture, collaborating with the team. Last six months officially on staff.',
+        ru: 'Основное место работы на протяжении двух лет. Начинал по договору — небольшие задачи, быстрый ритм агентства. Постепенно зона ответственности росла: самостоятельная разработка фич, поддержка интерфейсов, работа с проектной структурой и взаимодействие с командой. Последние полгода — официально в штате по ТК.',
+        en: 'My main place of work for two years. Started as a contractor — small tasks, fast agency pace. Gradually took on more responsibility: building features independently, supporting interfaces, working with project structure, and collaborating with the team. Last six months officially on staff.',
       },
     },
     {
@@ -142,8 +142,8 @@ export const content = {
         en: 'Frontend + SEO',
       },
       description: {
-        ru: 'Проектная работа муниципального уровня. Сайт не обновлялся с 2008 года — настоящий легаси, где каждое изменение требовало осторожности. Провёл редизайн, SEO-оптимизацию, разобрался с кодом который писали задолго до современных стандартов. Интересный опыт работы в условиях ограничений.',
-        en: 'A municipal-level project. The site hadn\'t been updated since 2008 — real legacy code where every change required care. Handled the redesign, SEO optimization, and worked through code written long before modern standards existed. A valuable experience of working under constraints.',
+        ru: 'Проектная работа муниципального уровня. Сайт не обновлялся с 2008 года — большая легаси-кодовая база, где каждое изменение требовало осторожности. Работал над редизайном, SEO-оптимизацией и точечными улучшениями интерфейса без полного переписывания проекта.',
+        en: "A municipal-level project. The site hadn't been updated since 2008 — a large legacy codebase where every change required care. Worked on the redesign, SEO optimization, and targeted interface improvements without rewriting the whole project.",
       },
     },
     {
