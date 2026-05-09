@@ -15,7 +15,7 @@ import {
   SiCss,
   SiCssmodules,
 } from 'react-icons/si';
-import { MessageCircle, Shield, Zap, Target } from 'lucide-react';
+import { Clock3, Diamond, MessageCircle, Shield, TrendingUp, UsersRound, Zap, Target } from 'lucide-react';
 import type { Locale, SoftSkillIcon } from '../content';
 import { content, ui } from '../content';
 import { Eyebrow } from '../components/Eyebrow';
@@ -45,12 +45,18 @@ const SOFT_ICONS: Record<SoftSkillIcon, IconFC> = {
   shield:  Shield as IconFC,
   brain:   Zap as IconFC,
   target:  Target as IconFC,
+  clock:   Clock3 as IconFC,
+  users:   UsersRound as IconFC,
+  diamond: Diamond as IconFC,
+  trend:   TrendingUp as IconFC,
 };
 
 const MARQUEE_TOKENS = [
   'REACT', 'TYPESCRIPT', 'REACT ROUTER', 'RTK',
   'STYLED COMPONENTS', 'SCSS', 'MUI', 'AXIOS', 'REST API', 'GIT', 'FIGMA',
 ];
+
+const SOFT_TITLE = 'SOFT SKILLS';
 
 const TAG_OFFSETS: Array<[number, number]> = [
   [-40,-30],[50,-20],[-60,30],[30,40],[-20,-50],[60,20],[-40,50],
@@ -130,7 +136,7 @@ export function Skills({ locale }: { locale: Locale }) {
           className={`skills-tab${tab === 'hard' ? ' is-active' : ''}`}
           onClick={() => setTab('hard')}
         >
-          {locale === 'ru' ? 'ХАД НАВЫКИ' : 'HARD SKILLS'}
+          {locale === 'ru' ? 'ХАРД НАВЫКИ' : 'HARD SKILLS'}
         </button>
         <button
           type="button"
@@ -141,11 +147,20 @@ export function Skills({ locale }: { locale: Locale }) {
         </button>
       </div>
 
+      <div className={`skills-marquee-card${tab === 'soft' ? ' is-soft' : ''}`}>
+        {tab === 'hard' ? (
+            <Marquee duration="38s">{marqueeTokens}</Marquee>
+        ) : (
+          <div className="soft-marquee-lock" aria-label="Soft skills">
+            <span className="soft-dots" aria-hidden="true" />
+            <span>{SOFT_TITLE}</span>
+            <span className="soft-dots" aria-hidden="true" />
+          </div>
+        )}
+      </div>
+
       {tab === 'hard' && (
         <>
-          <div className="skills-marquee-card">
-            <Marquee duration="38s">{marqueeTokens}</Marquee>
-          </div>
           <div className="skills-grid">
             <div className="tag-cloud reveal">
               {tags.map((tag, i) => (
@@ -184,10 +199,15 @@ export function Skills({ locale }: { locale: Locale }) {
           {content.softSkills.map((sk, i) => {
             const Icon = SOFT_ICONS[sk.icon];
             return (
-              <div key={i} className="soft-card glass reveal">
+              <div
+                key={i}
+                className="soft-card glass reveal"
+                style={{ ['--i' as never]: i } as React.CSSProperties}
+              >
                 <span className="soft-icon">
                   <Icon size={28} />
                 </span>
+                <span className="soft-num">0{i + 1}</span>
                 <h4 className="soft-title">{sk.label[locale]}</h4>
                 <p className="soft-desc">{sk.description[locale]}</p>
               </div>

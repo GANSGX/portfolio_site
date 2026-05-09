@@ -32,7 +32,15 @@ type ContactLink = {
   href: string;
 };
 
-export type SoftSkillIcon = 'message' | 'shield' | 'brain' | 'target';
+export type SoftSkillIcon =
+  | 'message'
+  | 'shield'
+  | 'brain'
+  | 'target'
+  | 'clock'
+  | 'users'
+  | 'diamond'
+  | 'trend';
 
 type SoftSkill = {
   icon: SoftSkillIcon;
@@ -190,34 +198,66 @@ export const content = {
   softSkills: [
     {
       icon: 'message',
-      label: { ru: 'Коммуникабельность', en: 'Communication' },
+      label: { ru: 'Коммуникация', en: 'Communication' },
       description: {
-        ru: 'Легко нахожу общий язык с командой и клиентами',
-        en: 'I find common ground with teammates and clients easily',
+        ru: 'Легко нахожу общий язык с людьми, умею слушать и доносить мысли чётко и по делу.',
+        en: 'I find common ground easily, listen carefully, and explain thoughts clearly.',
+      },
+    },
+    {
+      icon: 'target',
+      label: { ru: 'Ответственность', en: 'Responsibility' },
+      description: {
+        ru: 'Довожу начатое до конца, соблюдаю сроки и держу обещания.',
+        en: 'I finish what I start, respect deadlines, and keep promises.',
       },
     },
     {
       icon: 'shield',
-      label: { ru: 'Стрессоустойчивость', en: 'Resilience' },
+      label: { ru: 'Решение проблем', en: 'Problem solving' },
       description: {
-        ru: 'Дедлайны не пугают',
-        en: "Deadlines don't scare me",
+        ru: 'Быстро нахожу решения в нестандартных ситуациях и не боюсь сложных задач.',
+        en: 'I find solutions in unusual situations and do not avoid hard tasks.',
       },
     },
     {
       icon: 'brain',
       label: { ru: 'Обучаемость', en: 'Quick learner' },
       description: {
-        ru: 'Новый стек — это интересно, не страшно',
-        en: 'A new stack is interesting, not scary',
+        ru: 'Быстро осваиваю новое, постоянно развиваюсь и слежу за трендами в IT.',
+        en: 'I learn quickly, keep growing, and follow trends in tech.',
       },
     },
     {
-      icon: 'target',
-      label: { ru: 'Целеустремлённость', en: 'Drive' },
+      icon: 'clock',
+      label: { ru: 'Тайм-менеджмент', en: 'Time management' },
       description: {
-        ru: 'Если взялся — довожу до конца',
-        en: 'If I take it on, I see it through',
+        ru: 'Планирую своё время, расставляю приоритеты и не теряюсь в параллельных задачах.',
+        en: 'I plan time, set priorities, and stay focused across parallel tasks.',
+      },
+    },
+    {
+      icon: 'users',
+      label: { ru: 'Работа в команде', en: 'Teamwork' },
+      description: {
+        ru: 'Поддерживаю здоровую атмосферу, делюсь контекстом и нормально принимаю обратную связь.',
+        en: 'I support a healthy team atmosphere, share context, and take feedback well.',
+      },
+    },
+    {
+      icon: 'diamond',
+      label: { ru: 'Внимание к деталям', en: 'Attention to detail' },
+      description: {
+        ru: 'Замечаю мелочи, которые влияют на качество интерфейса и ощущение продукта.',
+        en: 'I notice details that affect interface quality and product feel.',
+      },
+    },
+    {
+      icon: 'trend',
+      label: { ru: 'Инициативность', en: 'Initiative' },
+      description: {
+        ru: 'Предлагаю идеи, ищу улучшения и не жду, пока проблема станет большой.',
+        en: 'I suggest ideas, look for improvements, and catch issues early.',
       },
     },
   ] satisfies SoftSkill[],
