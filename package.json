@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "postbuild": "cp CNAME dist/CNAME && touch dist/.nojekyll",
     "preview": "vite preview"
   },
   "dependencies": {
