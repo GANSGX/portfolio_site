@@ -10,6 +10,21 @@ const BRAND: Record<string, { color: string; shadow: string }> = {
   Email:    { color: '#ff7070', shadow: 'rgba(255,112,112,0.20)' },
 };
 
+const STAR_FIELD = [
+  { x: 14, y: 18, s: 'sm', d: 0 },
+  { x: 30, y: 10, s: 'md', d: 1.2 },
+  { x: 52, y: 22, s: 'lg', d: 2.4 },
+  { x: 78, y: 14, s: 'sm', d: .8 },
+  { x: 88, y: 34, s: 'md', d: 2.8 },
+  { x: 18, y: 44, s: 'lg', d: 1.8 },
+  { x: 43, y: 48, s: 'sm', d: 3.2 },
+  { x: 64, y: 42, s: 'xl', d: .4 },
+  { x: 82, y: 58, s: 'sm', d: 1.6 },
+  { x: 25, y: 68, s: 'md', d: 2.2 },
+  { x: 54, y: 74, s: 'sm', d: .9 },
+  { x: 72, y: 82, s: 'lg', d: 3.4 },
+] as const;
+
 function ContactIcon({ label }: { label: string }) {
   if (label === 'GitHub')   return <SiGithub />;
   if (label === 'Telegram') return <SiTelegram />;
@@ -80,14 +95,17 @@ export function Contact({ locale }: { locale: Locale }) {
         </div>
 
         <div className="contact-visual" aria-hidden="true">
-          <span className="contact-crosshair" />
-          <span className="contact-scan scan-a" />
-          <span className="contact-scan scan-b" />
-          <span className="contact-corner corner-a" />
-          <span className="contact-corner corner-b" />
-          <span className="contact-node node-a" />
-          <span className="contact-node node-b" />
-          <span className="contact-node node-c" />
+          {STAR_FIELD.map((star, index) => (
+            <span
+              className={`contact-star star-${star.s}`}
+              key={index}
+              style={{
+                ['--x' as never]: `${star.x}%`,
+                ['--y' as never]: `${star.y}%`,
+                ['--d' as never]: `${star.d}s`,
+              } as React.CSSProperties}
+            />
+          ))}
         </div>
       </div>
     </section>
