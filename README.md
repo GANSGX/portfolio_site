@@ -20,3 +20,4 @@ npm run build
 - `src/content.ts` — контент и переводы `ru/en`.
 - `src/App.tsx` — секции лендинга и переключатель языка.
 - `src/styles.css` — глобальные стили и Tailwind.
+Authored by GANSGX!
