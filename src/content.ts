@@ -134,8 +134,8 @@ export const content = {
         en: 'Frontend Developer',
       },
       description: {
-        ru: 'Основное место работы на протяжении двух лет. Начинал по договору — небольшие задачи, быстрый ритм агентства. Постепенно зона ответственности росла: самостоятельная разработка фич, поддержка интерфейсов, работа с проектной структурой и взаимодействие с командой. Последние полгода — официально в штате по ТК.',
-        en: 'My main place of work for two years. Started as a contractor — small tasks, fast agency pace. Gradually took on more responsibility: building features independently, supporting interfaces, working with project structure, and collaborating with the team. Last six months officially on staff.',
+        ru: 'Основное место работы на протяжении двух лет. Начинал с небольших задач в быстром ритме агентства. Постепенно зона ответственности росла: от простых правок — к самостоятельной разработке фич, поддержке интерфейсов, работе с проектной структурой и взаимодействию с командой.',
+        en: 'My main workplace for two years. Started with small tasks at a fast agency pace. Gradually took on more responsibility: from simple fixes to building features independently, supporting interfaces, working with project structure, and collaborating with the team.',
       },
     },
     {
@@ -150,8 +150,8 @@ export const content = {
         en: 'Frontend + SEO',
       },
       description: {
-        ru: 'Проектная работа муниципального уровня. Сайт не обновлялся с 2008 года — большая легаси-кодовая база, где каждое изменение требовало осторожности. Работал над редизайном, SEO-оптимизацией и точечными улучшениями интерфейса без полного переписывания проекта.',
-        en: "A municipal-level project. The site hadn't been updated since 2008 — a large legacy codebase where every change required care. Worked on the redesign, SEO optimization, and targeted interface improvements without rewriting the whole project.",
+        ru: 'Проектная работа над муниципальным сайтом с легаси-кодовой базой 2008 года. Провёл редизайн ключевых разделов, выполнил SEO-оптимизацию и точечные доработки интерфейса — с фокусом на стабильность и совместимость с существующей архитектурой.',
+        en: 'Project-based work on a municipal website with a legacy codebase dating back to 2008. Redesigned key sections, performed SEO optimization, and made targeted UI improvements — with a focus on stability and compatibility with the existing architecture.',
       },
     },
     {
@@ -179,7 +179,7 @@ export const content = {
     { category: 'Frameworks', values: 'React, React Router' },
     { category: 'State', values: 'Redux Toolkit' },
     { category: 'Styling', values: 'HTML, CSS, SCSS, CSS-in-JS, Styled Components, CSS Modules, MUI' },
-    { category: 'HTTP', values: 'Axios, REST API' },
+    { category: 'HTTP', values: 'Axios, REST API, Zod' },
     { category: 'Tools', values: 'Git, Figma' },
   ] satisfies SkillItem[],
 

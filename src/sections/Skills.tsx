@@ -14,6 +14,7 @@ import {
   SiTypescript,
   SiCss,
   SiCssmodules,
+  SiZod,
 } from 'react-icons/si';
 import { Clock3, Diamond, MessageCircle, Shield, TrendingUp, UsersRound, Zap, Target } from 'lucide-react';
 import type { Locale, SoftSkillIcon } from '../content';
@@ -38,6 +39,7 @@ const TECH_ICONS: Record<string, { Icon: IconFC; color: string }> = {
   Axios:              { Icon: SiAxios as IconFC,              color: '#5A29E4' },
   Figma:              { Icon: SiFigma as IconFC,              color: '#F24E1E' },
   Git:                { Icon: SiGit as IconFC,                color: '#F05032' },
+  Zod:                { Icon: SiZod as IconFC,                color: '#3068B7' },
 };
 
 const SOFT_ICONS: Record<SoftSkillIcon, IconFC> = {
@@ -53,7 +55,7 @@ const SOFT_ICONS: Record<SoftSkillIcon, IconFC> = {
 
 const MARQUEE_TOKENS = [
   'REACT', 'TYPESCRIPT', 'REACT ROUTER', 'RTK',
-  'STYLED COMPONENTS', 'SCSS', 'MUI', 'AXIOS', 'REST API', 'GIT', 'FIGMA',
+  'STYLED COMPONENTS', 'SCSS', 'MUI', 'AXIOS', 'REST API', 'ZOD', 'GIT', 'FIGMA',
 ];
 
 const SOFT_TITLE = 'SOFT SKILLS';
