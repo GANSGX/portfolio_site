@@ -72,21 +72,21 @@ export const content = {
       en: 'I build interfaces that feel good to use',
     },
     about: {
-      ru: 'Я frontend-разработчик, который любит не просто верстать экраны, а доводить интерфейс до состояния “им удобно пользоваться”.\n\nЗа 3 года я работал с разными типами задач: быстрые агентские проекты, фриланс и муниципальный сайт с большой легаси-кодовой базой. Поэтому умею не только писать с нуля, но и аккуратно разбираться в чужом коде, точечно улучшать существующее и не ломать то, что уже работает.\n\nМне близок подход, где frontend — это не набор красивых блоков, а часть продукта: скорость, адаптивность, понятная структура, аккуратная анимация, нормальная коммуникация с командой. Я спокойно отношусь к ограничениям, задаю вопросы, если вижу риск, и стараюсь делать так, чтобы после меня код было приятно поддерживать.',
-      en: "I'm a frontend developer who likes not just building screens, but bringing an interface to the point where it feels comfortable to use.\n\nOver 3 years, I've worked with different kinds of tasks: fast agency projects, freelance work, and a municipal website with a large legacy codebase. That taught me not only to build from scratch, but also to carefully understand existing code, improve it point by point, and avoid breaking what already works.\n\nI see frontend as more than a set of nice-looking blocks — it's part of the product: speed, responsiveness, clear structure, thoughtful animation, and healthy communication with the team. I stay calm around constraints, ask questions when I see risk, and try to leave code that is pleasant to maintain.",
+      ru: 'Я frontend-разработчик, который любит не просто верстать экраны, а доводить интерфейс до состояния “им удобно пользоваться”.\n\nЗа 2.5 года я работал с разными типами задач: быстрые агентские проекты, фриланс и муниципальный сайт с большой легаси-кодовой базой. Поэтому умею не только писать с нуля, но и аккуратно разбираться в чужом коде, точечно улучшать существующее и не ломать то, что уже работает.\n\nМне близок подход, где frontend — это не набор красивых блоков, а часть продукта: скорость, адаптивность, понятная структура, аккуратная анимация, нормальная коммуникация с командой. Я спокойно отношусь к ограничениям, задаю вопросы, если вижу риск, и стараюсь делать так, чтобы после меня код было приятно поддерживать.',
+      en: "I'm a frontend developer who likes not just building screens, but bringing an interface to the point where it feels comfortable to use.\n\nOver 2.5 years, I've worked with different kinds of tasks: fast agency projects, freelance work, and a municipal website with a large legacy codebase. That taught me not only to build from scratch, but also to carefully understand existing code, improve it point by point, and avoid breaking what already works.\n\nI see frontend as more than a set of nice-looking blocks — it's part of the product: speed, responsiveness, clear structure, thoughtful animation, and healthy communication with the team. I stay calm around constraints, ask questions when I see risk, and try to leave code that is pleasant to maintain.",
     },
   },
 
   stats: [
     {
-      value: 3,
+      value: 2.5,
       label: { ru: 'Года', en: 'Years' },
       flip: { ru: 'в коде', en: 'in code' },
       description: {
         ru: 'От правок вёрстки до самостоятельной разработки фич и поддержки интерфейсов',
         en: 'From layout fixes to building features independently and supporting interfaces',
       },
-      source: { ru: '2023 — 2026', en: '2023 — 2026' },
+      source: { ru: '2024 — 2026', en: '2024 — 2026' },
       tags: {
         ru: 'AMF Marketing · Муниципальный проект · Фриланс',
         en: 'AMF Marketing · Municipal project · Freelance',
@@ -284,7 +284,7 @@ export const ui = {
     skills: 'Навыки',
     education: 'Образование',
     contact: 'Контакт',
-    meta: '— FRONTEND DEVELOPER · НОВОСИБИРСК · 3 ГОДА',
+    meta: '— FRONTEND DEVELOPER · НОВОСИБИРСК · 2.5 ГОДА',
     cta: 'Смотреть работы',
     sectionAbout: '01 — ОБО МНЕ',
     sectionExperience: '02 — ОПЫТ',
@@ -309,7 +309,7 @@ export const ui = {
     skills: 'Skills',
     education: 'Education',
     contact: 'Contact',
-    meta: '— FRONTEND DEVELOPER · NOVOSIBIRSK · 3 YEARS',
+    meta: '— FRONTEND DEVELOPER · NOVOSIBIRSK · 2.5 YEARS',
     cta: 'View work',
     sectionAbout: '01 — ABOUT',
     sectionExperience: '02 — EXPERIENCE',
